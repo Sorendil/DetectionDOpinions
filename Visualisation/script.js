@@ -1,7 +1,7 @@
 
 var nbMots = 153345, // T
     nbDocuments = 1500, // T
-    nbMotsSansStopwords = 110921, // T
+    nbMotsVides = 110921, // T
     //nbMotsLemmes = 20000, // F
     nbMotsUniques = 12407, // T
     nbDocumentsPositifs = 300,
@@ -20,7 +20,7 @@ var pie = d3.layout.pie()
     .sort(null)
     .value(function(d) { return d; });
 
-var pourcentageMotsSansStopwords;
+var pourcentageMotsVides;
 //var pourcentageMotsLemmes;
 var pourcentageMotsUniques;
 
@@ -115,7 +115,7 @@ function creerDiagrammeDocumentsValues() {
 function init() {
     
     // Calcul des pourcentages
-    pourcentageMotsSansStopwords = calculPourcentageParMots(nbMotsSansStopwords);
+    pourcentageMotsVides = calculPourcentageParMots(nbMotsVides);
     //pourcentageMotsLemmes = calculPourcentageParMots(nbMotsLemmes);
     pourcentageMotsUniques = calculPourcentageParMots(nbMotsUniques);
     pourcentageDocumentsPositifs = calculPourcentageParDocuments(nbDocumentsPositifs);
@@ -128,7 +128,7 @@ function init() {
     d3.select('.totalDocuments').text('Nombre total de documents : ' + nbDocuments);
     
     // Création des diagrammes de mots spéciaux
-    creerDiagrammeMotsSpeciaux(d3.select(".motsSansStopwords"), pourcentageMotsSansStopwords, "Mots sans StopWords");
+    creerDiagrammeMotsSpeciaux(d3.select(".motsVides"), pourcentageMotsVides, "Mots vides");
     //creerDiagrammeMotsSpeciaux(d3.select(".motsLemmes"), pourcentageMotsLemmes, "Mots lemmatisés");
     creerDiagrammeMotsSpeciaux(d3.select(".motsUniques"), pourcentageMotsUniques, "Mots uniques");
     
