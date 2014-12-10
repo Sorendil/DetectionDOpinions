@@ -2,8 +2,8 @@
 var nbMots = 153345, // T
     nbDocuments = 1500, // T
     nbMotsSansStopwords = 110921, // T
-    nbMotsLemmes = 20000, // F
-    nbMotsUniques = 53000, // F
+    //nbMotsLemmes = 20000, // F
+    nbMotsUniques = 12407, // T
     nbDocumentsPositifs = 300,
     nbDocumentsNeutres = 700,
     nbDocumentsNegatifs = 500;
@@ -20,20 +20,9 @@ var pie = d3.layout.pie()
     .sort(null)
     .value(function(d) { return d; });
 
-var nbMots,
-    nbDocuments;
-
-var nbMotsSansStopwords;
-var nbMotsLemmes;
-var nbMotsUniques;
-
 var pourcentageMotsSansStopwords;
-var pourcentageMotsLemmes;
+//var pourcentageMotsLemmes;
 var pourcentageMotsUniques;
-
-var nbDocumentsPositifs;
-var nbDocumentsNeutres;
-var nbDocumentsNegatifs;
 
 var pourcentageMotsPositifs;
 var pourcentageDocumentsNeutres;
@@ -124,19 +113,10 @@ function creerDiagrammeDocumentsValues() {
  * Fonction principale
  */
 function init() {
-    nbMots = 153345; // T
-    nbDocuments = 1500; // T
-    nbMotsSansStopwords = 110921; // T
-    nbMotsLemmes = 20000; // F
-    nbMotsUniques = 53000; // F
-    nbDocumentsPositifs = 300;
-    nbDocumentsNeutres = 700;
-    nbDocumentsNegatifs = 500;
-    // Nb d'attributs : 12407
     
     // Calcul des pourcentages
     pourcentageMotsSansStopwords = calculPourcentageParMots(nbMotsSansStopwords);
-    pourcentageMotsLemmes = calculPourcentageParMots(nbMotsLemmes);
+    //pourcentageMotsLemmes = calculPourcentageParMots(nbMotsLemmes);
     pourcentageMotsUniques = calculPourcentageParMots(nbMotsUniques);
     pourcentageDocumentsPositifs = calculPourcentageParDocuments(nbDocumentsPositifs);
     pourcentageDocumentsNeutres = calculPourcentageParDocuments(nbDocumentsNeutres);
@@ -149,7 +129,7 @@ function init() {
     
     // Création des diagrammes de mots spéciaux
     creerDiagrammeMotsSpeciaux(d3.select(".motsSansStopwords"), pourcentageMotsSansStopwords, "Mots sans StopWords");
-    creerDiagrammeMotsSpeciaux(d3.select(".motsLemmes"), pourcentageMotsLemmes, "Mots lemmes");
+    //creerDiagrammeMotsSpeciaux(d3.select(".motsLemmes"), pourcentageMotsLemmes, "Mots lemmatisés");
     creerDiagrammeMotsSpeciaux(d3.select(".motsUniques"), pourcentageMotsUniques, "Mots uniques");
     
     // Création du diagramme des mots valués
