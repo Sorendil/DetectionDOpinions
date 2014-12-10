@@ -1,0 +1,22 @@
+
+.totalDocuments {
+    margin-top: 50px;
+    margin-bottom: 10px;
+}
+.motsSpeciaux, .documentsValues {
+    text-align: center;
+}
+.motsSansStopwords, .motsLemmes, .motsUniques {
+    display: inline-block;
+    margin: 20px 40px;
+    width: 300px;
+}
+
+.motSpecialPourcentage {
+    font-size: 16pt;
+}
+
+.totalMots, .motSpecialName, .totalDocuments {
+    font-size: 20pt;
+    text-align: center;
+}
