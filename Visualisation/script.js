@@ -1,12 +1,12 @@
 
 var nbMots = 153345, // T
-    nbDocuments = 1500, // T
     nbMotsVides = 110921, // T
     //nbMotsLemmes = 20000, // F
     nbMotsUniques = 12407, // T
-    nbDocumentsPositifs = 300,
-    nbDocumentsNeutres = 700,
-    nbDocumentsNegatifs = 500;
+    nbDocumentsPositifs = 56070,
+    nbDocumentsNeutres = 45920,
+    nbDocumentsNegatifs = 31591,
+    nbDocuments = nbDocumentsPositifs + nbDocumentsNeutres + nbDocumentsNegatifs; // T
 
 var motsSpeciauxLargeur = 150,
     motsSpeciauxHauteur = 150,
@@ -105,7 +105,7 @@ function creerDiagrammeDocumentsValues() {
         .text(function(d) { return arrondi(d.data) + "%"; });
 
     var name = racine.append("div")
-        .text("Classes de documents")
+        .text("Classes de documents (avant filtrage)")
         .attr("class", "motSpecialName");
 };
 
@@ -123,12 +123,12 @@ function init() {
     pourcentageDocumentsNegatifs = calculPourcentageParDocuments(nbDocumentsNegatifs);
     
     // Affichage du nombre total de mots
-    d3.select('.totalMots').text('Nombre total de mots : ' + nbMots);
+    d3.select('.totalMots').text('Nombre total de mots : ' + nbMots + " (Après filtrage, sur les 1500 documents)");
     // Affichage du nombre total de documents
-    d3.select('.totalDocuments').text('Nombre total de documents : ' + nbDocuments);
+    d3.select('.totalDocuments').text('Nombre total de documents : ' + nbDocuments + " (Avant filtrage)");
     
     // Création des diagrammes de mots spéciaux
-    creerDiagrammeMotsSpeciaux(d3.select(".motsVides"), pourcentageMotsVides, "Mots vides");
+    creerDiagrammeMotsSpeciaux(d3.select(".motsVides"), pourcentageMotsVides, "Mots non-vides");
     //creerDiagrammeMotsSpeciaux(d3.select(".motsLemmes"), pourcentageMotsLemmes, "Mots lemmatisés");
     creerDiagrammeMotsSpeciaux(d3.select(".motsUniques"), pourcentageMotsUniques, "Mots uniques");
     

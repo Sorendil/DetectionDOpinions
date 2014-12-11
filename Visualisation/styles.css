@@ -6,7 +6,7 @@
 .motsSpeciaux, .documentsValues {
     text-align: center;
 }
-.motsSansStopwords, .motsLemmes, .motsUniques {
+.motsVides, .motsLemmes, .motsUniques {
     display: inline-block;
     margin: 20px 40px;
     width: 300px;
